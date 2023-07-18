@@ -32,7 +32,7 @@ export default async function handler(req, res) {
           await db.collection('users').insertOne({ name: name[0], email: email[0] });
   
           // Move the uploaded image to the specified folder
-          const newPath = `./public/uploads/${image[0].originalFilename}`;
+          const newPath = '/Downloads';
           await fs.move(image[0].path, newPath);
   
           // Close the MongoDB connection
