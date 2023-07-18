@@ -1,4 +1,36 @@
 import React, { useState } from 'react';
+import styled from 'styled-components';
+
+const FormContainer = styled.div`
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #0000;
+`;
+
+const Label = styled.label`
+  display: block;
+  margin-bottom: 5px;
+`;
+
+const Input = styled.input`
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+`;
+
+const Button = styled.button`
+  background-color: #0070f3;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+`;
 
 const Upload = () => {
   const [name, setName] = useState('');
@@ -34,25 +66,40 @@ const Upload = () => {
   };
 
   return (
-    <div>
-      <h1 className='up_head'>Upload Form</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Name:</label>
-          <input type="text" value={name} onChange={(e) => setName(e.target.value)} required />
-        </div>
-        <div>
-          <label>Email:</label>
-          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-        </div>
-        <div>
-          <label>Image:</label>
-          <input type="file" accept="image/*" onChange={(e) => setImage(e.target.files[0])} required />
-        </div>
-        <button type="submit">Submit</button>
-      </form>
-      {message && <p>{message}</p>}
-    </div>
+    <FormContainer>
+  <h1>Upload Form</h1>
+  <div>
+    <Label htmlFor="name">Name:</Label>
+    <Input
+      type="text"
+      id="name"
+      value={name}
+      onChange={(e) => setName(e.target.value)}
+      required
+    />
+  </div>
+  <div>
+    <Label htmlFor="email">Email:</Label>
+    <Input
+      type="email"
+      id="email"
+      value={email}
+      onChange={(e) => setEmail(e.target.value)}
+      required
+    />
+  </div>
+  <div>
+    <Label htmlFor="image">Image:</Label>
+    <Input
+      type="file"
+      id="image"
+      accept="image/*"
+      onChange={(e) => setImage(e.target.files[0])}
+      required
+    />
+  </div>
+  <Button type="submit">Submit</Button>
+</FormContainer>
   );
 };
 

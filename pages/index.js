@@ -4,7 +4,7 @@ import Upload from './upload';
 const Home = () => {
   return (
     <div>
-      <h1>Image Upload</h1>
+      <h1></h1>
       <Upload />
     </div>
   );
